@@ -3,7 +3,7 @@ import { Properties } from '../data/data';
 import { Link, useParams } from 'react-router-dom';
 
 const PropertyPreview = () => {
-    const property = Properties[useParams().id];
+    const property = Properties[useParams().id - 1];
     console.log(property.name)
 
 
@@ -23,8 +23,12 @@ const PropertyPreview = () => {
                             <a class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1">Description</a>
                         </div>
                         <p class="leading-relaxed mb-4">Fam locavore kickstarter distillery. Mixtape chillwave tumeric sriracha taximy chia microdosing tilde DIY. XOXO fam inxigo juiceramps cornhole raw denim forage brooklyn. Everyday carry +1 seitan poutine tumeric. Gastropub blue bottle austin listicle pour-over, neutra jean.</p>
-
-                        <div class="flex">
+                        <div className='bg-gray-100 p-2 font-bold p-1 rounded-lg grid grid-cols-2'>
+                            <p>{property.roomCount}</p>
+                            <p>{property.area} sq.ft</p>
+                            <p>{property.bathRoomCount} bathrooms</p>
+                        </div>
+                        <div class="flex mt-5">
                             <span class="title-font font-medium text-2xl text-gray-900">{property.rent}/month</span>
                             <button class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Rent Now</button>
                             <button class="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
